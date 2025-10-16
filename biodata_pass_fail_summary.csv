@@ -1,0 +1,29 @@
+view,status,gender,community,count
+Status totals,All Clear,All,All,41
+Status totals,Reappear,All,All,6
+Status by gender,All Clear,Female,All,32
+Status by gender,All Clear,Male,All,9
+Status by gender,Reappear,Female,All,2
+Status by gender,Reappear,Male,All,4
+Status by community,All Clear,All,BC,5
+Status by community,All Clear,All,MBC,4
+Status by community,All Clear,All,SC,22
+Status by community,All Clear,All,SCA,8
+Status by community,All Clear,All,ST,2
+Status by community,Reappear,All,MBC,1
+Status by community,Reappear,All,SC,1
+Status by community,Reappear,All,SCA,3
+Status by community,Reappear,All,ST,1
+Status by gender & community,All Clear,Female,BC,4
+Status by gender & community,All Clear,Female,MBC,2
+Status by gender & community,All Clear,Female,SC,18
+Status by gender & community,All Clear,Female,SCA,8
+Status by gender & community,All Clear,Male,BC,1
+Status by gender & community,All Clear,Male,MBC,2
+Status by gender & community,All Clear,Male,SC,4
+Status by gender & community,All Clear,Male,ST,2
+Status by gender & community,Reappear,Female,SCA,1
+Status by gender & community,Reappear,Female,ST,1
+Status by gender & community,Reappear,Male,MBC,1
+Status by gender & community,Reappear,Male,SC,1
+Status by gender & community,Reappear,Male,SCA,2

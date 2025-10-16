@@ -1,0 +1,20 @@
+Gender Totals
+Gender,Count
+F,34
+M,13
+
+Community Totals
+Community,Count
+BC,5
+MBC,5
+SC,23
+SCA,11
+ST,3
+
+Community by Gender
+Community,F,M
+BC,4,1
+MBC,2,3
+SC,18,5
+SCA,9,2
+ST,1,2

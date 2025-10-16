@@ -1,0 +1,133 @@
+{
+  "arrear_sheet_keywords": [
+    "arrear",
+    "arrears",
+    "backlog",
+    "backlogs",
+    "repeat",
+    "supplementary"
+  ],
+  "current_sem_sheet_keywords": [
+    "sem 8",
+    "semester 8",
+    "sem8",
+    "semester8",
+    "current sem",
+    "current semester"
+  ],
+  "master_name_sheet_keywords": [
+    "master",
+    "namelist",
+    "name list",
+    "student master",
+    "students"
+  ],
+  "register_no_aliases": [
+    "register no",
+    "register number",
+    "reg no",
+    "reg. no",
+    "regno",
+    "roll no",
+    "roll number"
+  ],
+  "student_name_aliases": [
+    "name",
+    "student name",
+    "student"
+  ],
+  "semester_aliases": [
+    "semester",
+    "sem"
+  ],
+  "gpa_aliases": [
+    "gpa",
+    "sgpa",
+    "sem gpa"
+  ],
+  "cgpa_aliases": [
+    "cgpa",
+    "c.g.p.a",
+    "c gpa"
+  ],
+  "subject_code_aliases": [
+    "subject code",
+    "sub code",
+    "code",
+    "course code"
+  ],
+  "subject_name_aliases": [
+    "subject name",
+    "course name",
+    "paper name",
+    "title"
+  ],
+  "grade_aliases": [
+    "grade",
+    "letter grade",
+    "result grade"
+  ],
+  "result_aliases": [
+    "result",
+    "pass/fail",
+    "status"
+  ],
+  "credit_aliases": [
+    "credit",
+    "credits",
+    "credit points"
+  ],
+  "exam_session_aliases": [
+    "exam session",
+    "session",
+    "exam",
+    "month",
+    "exam month",
+    "exam year"
+  ],
+  "wide_mode_patterns": {
+    "code": [
+      "code",
+      "subject code",
+      "sub code",
+      "course code"
+    ],
+    "name": [
+      "name",
+      "subject name",
+      "course name",
+      "paper name",
+      "title"
+    ],
+    "grade": [
+      "grade",
+      "letter"
+    ],
+    "result": [
+      "result",
+      "status",
+      "pass",
+      "pf"
+    ],
+    "credit": [
+      "credit"
+    ]
+  },
+  "min_subject_columns_detect": 2,
+  "default_exam_session": "Apr-May 2025",
+  "no_of_subjects_reappear_aliases": [
+    "no. of subjects reappear",
+    "no of subjects reappear",
+    "no.of subjects reappear",
+    "subjects reappear",
+    "arrears count",
+    "no of arrears",
+    "no. of arrears"
+  ],
+  "subject_header_regex": "^\\s*([A-Z]{2,}\\d{3,4})\\s*\\(\\s*([\\d\\.]+)\\s*\\)\\s*$",
+  "register_header_regex": "^reg(ister)?\\s*\\.?\\s*(no|number)\\b",
+  "result_header_regex": "^result\\b",
+  "gpa_header_regex": "^gpa\\b",
+  "cgpa_header_regex": "^cgpa\\b",
+  "sno_header_regex": "^s\\.\\s*no\\b"
+}
