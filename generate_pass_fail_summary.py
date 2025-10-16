@@ -187,7 +187,7 @@ def parse_args(argv: List[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument(
         "--results",
-        default="ALL SEM RESULTS.xlsx",
+        default="new_result.xlsx",
         help="Path to the consolidated results workbook",
     )
     parser.add_argument(

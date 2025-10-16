@@ -25,6 +25,23 @@ community/gender based insights.
 
 ## Getting Started
 
+### Fully automated run (recommended)
+
+When the Excel workbooks and scripts live in the same directory, you can let
+`automate_pipeline.py` perform every setup step for you:
+
+```bash
+python automate_pipeline.py
+```
+
+The helper script will verify that `new_result.xlsx` matches the supported
+layout, create `.venv`, install `requirements.txt`, execute
+`combine_results.py`, and generate the optional class performance snapshot.
+Customise file names or skip the snapshot via the available CLI flags
+(`python automate_pipeline.py --help`).
+
+### Manual run
+
 1. Install dependencies (preferably inside a virtual environment):
 
    ```bash
@@ -33,14 +50,14 @@ community/gender based insights.
 
 2. Place the following input files in the repository root (default locations):
 
-* `ALL SEM RESULTS.xlsx` – consolidated mark statements across semesters.
+* `new_result.xlsx` – consolidated mark statements across semesters.
 * `CGPA.xlsx` – subject-to-credit catalogue used for GPA computation.
 * `biodata.xlsx` – register number to gender/community lookup.
 
 3. Run the analysis:
 
    ```bash
-   python combine_results.py --input "ALL SEM RESULTS.xlsx"
+   python combine_results.py --input "new_result.xlsx"
    ```
 
    Optional flags:
@@ -51,6 +68,10 @@ community/gender based insights.
    * `--subject-catalog` – credits/semester workbook for GPA mapping (defaults to `CGPA.xlsx`).
    * `--current-semester` – semester number considered the “current” term (defaults to 8).
 
+   For a detailed, end-to-end checklist covering environment setup, validation,
+   execution, troubleshooting, and automation options, see
+   [`docs/combine_results_protocol.md`](docs/combine_results_protocol.md).
+
 ### One-click Windows launcher
 
 Windows users can simply double-click `run_analysis.bat` once the input Excel files are in
@@ -59,7 +80,7 @@ place. The launcher will:
 1. Ensure Python 3 and a local virtual environment are available.
 2. Install/update the Python dependencies listed in `requirements.txt`.
 3. Execute `combine_results.py` with:
-   * `ALL SEM RESULTS.xlsx` as the input workbook.
+   * `new_result.xlsx` as the input workbook.
    * `CGPA.xlsx` as the subject credit catalogue.
    * `biodata.xlsx` for community/gender enrichment.
    * `outputs` as the destination folder.
