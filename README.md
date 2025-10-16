@@ -34,11 +34,10 @@ When the Excel workbooks and scripts live in the same directory, you can let
 python automate_pipeline.py
 ```
 
-The helper script will verify that `new_result.xlsx` matches the supported
-layout, create `.venv`, install `requirements.txt`, execute
-`combine_results.py`, and generate the optional class performance snapshot.
-Customise file names or skip the snapshot via the available CLI flags
-(`python automate_pipeline.py --help`).
+The helper script will verify input files, create `.venv`, install
+`requirements.txt`, execute `combine_results.py`, and generate the optional
+class performance snapshot. Customise file names or skip the snapshot via the
+available CLI flags (`python automate_pipeline.py --help`).
 
 ### Manual run
 

@@ -19,7 +19,6 @@ import os
 import shutil
 import subprocess
 import sys
-import textwrap
 from pathlib import Path
 from typing import Iterable, Sequence
 
@@ -42,7 +41,7 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument(
         "--input",
-        default="new_result.xlsx",
+        default="ALL SEM RESULTS.xlsx",
         help="Path to the master results workbook (default: %(default)s)",
     )
     parser.add_argument(
@@ -231,69 +230,6 @@ def run_class_snapshot(
         )
 
 
-def validate_input_workbook_layout(
-    venv_path: Path, *, workbook: Path, dry_run: bool
-) -> None:
-    """Ensure ``new_result.xlsx`` exposes the expected subject rows."""
-
-    if workbook.name.lower() != "new_result.xlsx":
-        raise ValueError(
-            "Input workbook must be named 'new_result.xlsx' so the automation "
-            "pipeline stays aligned with the supported data layout."
-        )
-
-    if dry_run:
-        print(f"[CHECK] Would validate workbook structure for {workbook}")
-        return
-
-    python_exe = python_in_venv(venv_path)
-    validator = textwrap.dedent(
-        """
-        import sys
-        from pathlib import Path
-        import pandas as pd
-
-        workbook = Path(sys.argv[1])
-        expected_labels = {"Sem", "Subjuncd", "Grade"}
-        xls = pd.ExcelFile(workbook)
-        issues = []
-        for sheet_name in xls.sheet_names:
-            df = pd.read_excel(xls, sheet_name=sheet_name, header=None, nrows=6)
-            if df.empty:
-                issues.append(f"{sheet_name}: sheet is empty")
-                continue
-            found = False
-            for _, row in df.iterrows():
-                labels = {
-                    str(value).strip()
-                    for value in row.values
-                    if isinstance(value, str) and value.strip()
-                }
-                if expected_labels.issubset(labels):
-                    found = True
-                    break
-            if not found:
-                issues.append(
-                    f"{sheet_name}: missing header row containing {sorted(expected_labels)}"
-                )
-        if issues:
-            formatted = "\n".join(issues)
-            raise SystemExit(
-                "Workbook validation failed. Please review the following sheets:\n"
-                + formatted
-            )
-        print(
-            f"Workbook '{workbook.name}' passed structural validation across "
-            f"{len(xls.sheet_names)} sheets."
-        )
-        """
-    )
-    run_command(
-        [str(python_exe), "-c", validator, str(workbook)],
-        dry_run=dry_run,
-    )
-
-
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
 
@@ -309,9 +245,6 @@ def main(argv: Sequence[str] | None = None) -> int:
         check_files_exist([input_path, subject_catalog, biodata, config_path, requirements_path])
         ensure_virtualenv(venv_path, python=args.python, dry_run=args.dry_run)
         install_dependencies(venv_path, requirements_path, dry_run=args.dry_run)
-        validate_input_workbook_layout(
-            venv_path, workbook=input_path, dry_run=args.dry_run
-        )
         if not args.dry_run:
             outdir.mkdir(parents=True, exist_ok=True)
         run_combine_results(
@@ -337,7 +270,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
         print("[SUCCESS] Workflow completed successfully.")
         return 0
-    except (FileNotFoundError, CommandError, ValueError) as exc:
+    except (FileNotFoundError, CommandError) as exc:
         print(f"[ERROR] {exc}")
         if not args.keep_venv and not args.dry_run:
             if venv_path.exists():

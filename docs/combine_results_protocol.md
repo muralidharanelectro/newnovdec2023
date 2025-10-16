@@ -18,7 +18,7 @@ inputs, executing the pipeline, and collecting the outputs produced by
 
 1. Clone or download this repository to a convenient location.
 2. Place the input workbooks alongside the scripts (repository root):
-   * `new_result.xlsx` – consolidated or per-semester mark statements.
+   * `ALL SEM RESULTS.xlsx` – consolidated or per-semester mark statements.
    * `CGPA.xlsx` – mapping of subject codes to credit values and nominal
      semesters.
    * `biodata.xlsx` – register number to gender/community mapping.
@@ -69,7 +69,7 @@ names differ.
 
 ```bash
 python combine_results.py \
-  --input "new_result.xlsx" \
+  --input "ALL SEM RESULTS.xlsx" \
   --outdir outputs \
   --subject-catalog "CGPA.xlsx" \
   --biodata "biodata.xlsx" \
