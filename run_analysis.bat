@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 REM === Configuration ===
-set "INPUT_WORKBOOK=ALL SEM RESULTS.xlsx"
+set "INPUT_WORKBOOK=new_result.xlsx"
 set "SUBJECT_CATALOG=CGPA.xlsx"
 set "BIODATA_WORKBOOK=biodata.xlsx"
 set "OUTPUT_DIR=outputs"
