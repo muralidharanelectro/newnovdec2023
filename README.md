@@ -25,6 +25,22 @@ community/gender based insights.
 
 ## Getting Started
 
+### Fully automated run (recommended)
+
+When the Excel workbooks and scripts live in the same directory, you can let
+`automate_pipeline.py` perform every setup step for you:
+
+```bash
+python automate_pipeline.py
+```
+
+The helper script will verify input files, create `.venv`, install
+`requirements.txt`, execute `combine_results.py`, and generate the optional
+class performance snapshot. Customise file names or skip the snapshot via the
+available CLI flags (`python automate_pipeline.py --help`).
+
+### Manual run
+
 1. Install dependencies (preferably inside a virtual environment):
 
    ```bash
@@ -50,6 +66,10 @@ community/gender based insights.
    * `--biodata` – path to the biodata workbook (defaults to `biodata.xlsx`).
    * `--subject-catalog` – credits/semester workbook for GPA mapping (defaults to `CGPA.xlsx`).
    * `--current-semester` – semester number considered the “current” term (defaults to 8).
+
+   For a detailed, end-to-end checklist covering environment setup, validation,
+   execution, troubleshooting, and automation options, see
+   [`docs/combine_results_protocol.md`](docs/combine_results_protocol.md).
 
 ### One-click Windows launcher
 
